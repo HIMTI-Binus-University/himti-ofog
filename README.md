@@ -41,6 +41,9 @@ This repository is not a modern single-framework app. It is a PHP-rendered stati
 |-- tailwind.config.js        # Tailwind 2 config
 |-- postcss.config.js         # PostCSS config
 |-- package.json              # Tailwind dependency and CSS watch script
+|-- Dockerfile                # PHP/Apache production image
+|-- .dockerignore             # Docker build exclusions
+|-- .github/workflows/        # GitHub Actions deployment workflow
 `-- .htaccess                 # Apache rewrite rules for production-style hosting
 ```
 
@@ -54,6 +57,10 @@ For regenerating Tailwind CSS:
 
 - Node.js and npm.
 - The repo currently locks Tailwind to `2.2.4`.
+
+For containerized production-style runs:
+
+- Docker.
 
 Known local versions used while documenting this repo:
 
@@ -87,6 +94,30 @@ http://127.0.0.1:8000/feed.php
 ```
 
 The PHP built-in server does **not** read `.htaccess`, so Apache rewrite behavior is not fully reproduced locally. Use the `.php` paths directly if clean URLs like `/about` do not resolve in local development.
+
+## Running with Docker
+
+The deployment image uses `php:8.2-apache`, enables Apache `mod_rewrite`, allows `.htaccess`, and serves the project from `/var/www/html`.
+
+Build the image locally:
+
+```bash
+docker build -t himti-ofog .
+```
+
+Run it locally:
+
+```bash
+docker run --rm -p 8080:80 himti-ofog
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8080/
+```
+
+The image creates `feed.json` during build and makes it writable by Apache/PHP. The source `feed.json` file is excluded from Docker builds through `.dockerignore`.
 
 ## Installing Node Dependencies
 
@@ -133,16 +164,65 @@ Implications:
 - The process needs write permission in the project root to create/update `feed.json`.
 - `feed.json` is ignored by Git.
 
-## Deployment Notes
+## Deployment Pipeline
 
-This project appears designed for simple PHP hosting, likely Apache:
+Deployment is handled by GitHub Actions at:
 
-- `.htaccess` enables rewrite handling and forwards unknown paths to `index.php`.
+```text
+.github/workflows/deploy-vps.yml
+```
+
+The workflow runs automatically on pushes to `main` and can also be run manually:
+
+```yaml
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+```
+
+Current pipeline:
+
+1. Build a Docker image from `Dockerfile`.
+2. Push the image to GitHub Container Registry:
+
+```text
+ghcr.io/himti-binus-university/himti-ofog
+```
+
+3. SSH into the VPS.
+4. Log in to GHCR from the VPS.
+5. Run Docker Compose from:
+
+```text
+/opt/himti-platform
+```
+
+6. Pull and restart the configured service:
+
+```text
+himti-ofog
+```
+
+Required GitHub repository secrets:
+
+- `VPS_HOST`
+- `VPS_USERNAME`
+- `VPS_SSH_KEY`
+- `GHCR_USERNAME`
+- `GHCR_TOKEN`
+
+The workflow uses `GITHUB_TOKEN` to push the package from GitHub Actions, and `GHCR_USERNAME` / `GHCR_TOKEN` for the VPS to pull from GHCR.
+
+The VPS Docker Compose file must define a service named `himti-ofog`, or `CONTAINER_SERVICE` in `.github/workflows/deploy-vps.yml` must be changed to match the real service name.
+
+## Container Notes
+
+- `.htaccess` is still active in production because the image runs Apache with `AllowOverride All`.
 - Static assets are served directly from `assets/`.
-- External CSS/JS dependencies are loaded from CDNs at runtime.
-- There is no formal build/deploy pipeline in the repo.
-
-If deploying somewhere other than Apache, manually reproduce the rewrite behavior or use direct `.php` routes.
+- External CSS/JS dependencies are still loaded from CDNs at runtime.
+- This project does not run `npm ci` or rebuild Tailwind during Docker image builds. It uses the committed `assets/css/tailwind.css`.
+- `.dockerignore` excludes `.git`, GitHub workflow files, local agent metadata, `node_modules`, `feed.json`, and local logs from the image.
 
 ## Refactor Notes
 
