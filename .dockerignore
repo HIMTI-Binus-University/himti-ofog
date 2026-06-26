@@ -1,0 +1,9 @@
+.git
+.github
+.agents
+.codex
+node_modules
+feed.json
+error_log
+npm-debug.log*
+.DS_Store
