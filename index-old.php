@@ -140,27 +140,25 @@ include('components/testimonies-items.php');
         <div class="upcomingeventdata">
             <a href="https://techno.himtibinus.or.id/" class="linkupcoming" target="_blank">
                 <div class="upcomingeventrow">
-                    <div style="height: 100%; display: flex;">
-                        <img src="https://techno.himtibinus.or.id/asset/Logo%20TECHNO%202023.png" alt="" class="logo">
+                    <div style="height: 100%; display: flex; align-items: center;">
+                        <h2>TECHNO 2026</h2>
                     </div>
 
                     <div class="upcomingeventitem shadow">
-                        <p>TECHNO 2024</p>
-                        <p data-countdown-enabled="true" data-countdown-timestamp="2023-09-10 13:00:00"></p>
-                        <p>?? ?? 2024</p>
+                        <p>TECHNO 2026</p>
+                        <p>TBA 2026</p>
                     </div>
                 </div>
             </a>
-            <a href="https://hishot2023.himtibinus.or.id/" class="linkupcoming" target="_blank">
+            <a href="https://hishot.himtibinus.or.id/" class="linkupcoming" target="_blank">
                 <div class="upcomingeventrow">
                     <div style="height: 100%; display: flex;">
-                        <img src="./" alt="" class="logo">
+                        <img src="assets/img/events/HISHOT2026.svg" alt="" class="logo">
                     </div>
 
                     <div class="upcomingeventitem shadow">
-                        <p>HISHOT 2024: PROTECT</p>
-                        <p data-countdown-enabled="true" data-countdown-timestamp="2023-07-29 13:00:00"></p>
-                        <p>27 July 2024</p>
+                        <p>HISHOT 2026</p>
+                        <p>12 Juni 2026</p>
                     </div>
                 </div>
             </a>

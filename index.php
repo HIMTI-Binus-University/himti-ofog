@@ -197,25 +197,25 @@ include('components/journey-items.php');
             </a>
               <a href="https://hishot.himtibinus.or.id/" class="linkupcoming" target="_blank">
                 <div class="upcomingeventrow">
-                    <div style="height: 75%; display: flex;" class="image-container">
-                        <img sytle="height: 60%;" src="assets/img/events/HISHOT2025.png" alt="" class="logo">
+                    <div class="image-container">
+                        <img src="assets/img/events/HISHOT2026.svg" alt="" class="logo">
                     </div>
 
                     <div class="upcomingeventitem shadow">
-                        <p>HISHOT 2025: GAME ON</p>
-                        <p>11 June 2025</p>
+                        <p>HISHOT 2026</p>
+                        <p>12 June 2026</p>
                     </div>
                 </div>
             </a>
                <a href="https://techfest.himtibinus.or.id/" class="linkupcoming" target="_blank">
                 <div class="upcomingeventrow">
-                    <div style="height: 75%; display: flex;" class="image-container">
-                        <img sytle="height: 60%;" src="assets/img/events/TECHFEST2025.png" alt="" class="logo">
+                    <div class="image-container">
+                        <img src="assets/img/events/TECHFEST2026-2.svg" alt="" class="logo">
                     </div>
 
                     <div class="upcomingeventitem shadow">
-                        <p>TECHFEST 2025: MAGIC</p>
-                        <p>19 July 2025</p>
+                        <p>TECHFEST 2026</p>
+                        <p>25 July 2026</p>
                     </div>
                 </div>
             </a>
@@ -336,7 +336,7 @@ include('components/journey-items.php');
     
     <div class="ourarticle">
         <div class="title">
-            <span>Our Articles</span>
+            <span>Our Videos</span>
         </div>
         <div class="container">
             <div class="row" id="RSSarticle">
@@ -349,7 +349,7 @@ include('components/journey-items.php');
         </div>
 
         <div class="viewtestimoni mt-3"><a href="https://student-activity.binus.ac.id/himti"
-                class="btn btn-light btn-lg text-dark">View All Articles</a></div>
+                class="btn btn-light btn-lg text-dark">View All Videos</a></div>
     </div>
 
 
@@ -423,8 +423,8 @@ include('components/journey-items.php');
                         ['img' => '2.jpg', 'category' => 'activities', 'title' => 'SESVENT 2025'],
                         ['img' => '3.jpg', 'category' => 'achievements', 'title' => 'HILET 2025'],
                         ['img' => '4.jpg', 'category' => 'events', 'title' => 'HILET 2025'],
-                        ['img' => '5.jpg', 'category' => 'activities', 'title' => 'HISHOT 2025 Seminar'],
-                        ['img' => '6.jpg', 'category' => 'achievements', 'title' => 'HISHOT 2025 Seminar']
+                        ['img' => '5.jpg', 'category' => 'activities', 'title' => 'HISHOT 2026 Seminar'],
+                        ['img' => '6.jpg', 'category' => 'achievements', 'title' => 'HISHOT 2026 Seminar']
                     ];
 
                     foreach ($gallery_items as $item) {

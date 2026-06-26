@@ -49,7 +49,7 @@
                 <a href="https://x.com/himtibinus"><i class="bi bi-twitter-x"></i></a>
                 <a href="https://www.youtube.com/user/HimtiBinus"><i class="bi bi-youtube"></i></a>
                 <a href="https://instagram.com/himti_binus"><i class="bi bi-instagram"></i></a>
-                <a href="https://github.com/himtibinus/"><i class="bi bi-github"></i></a>
+                <a href="https://github.com/HIMTI-Binus-University"><i class="bi bi-github"></i></a>
                 <a href="https://www.tiktok.com/@himtibinus"><i class="bi bi-tiktok"></i></a>
             </div>
             <p class="m-0 text-center sm:text-left">© 2021–<?php echo date("Y"); ?> HIMTI BINUS University</p>
