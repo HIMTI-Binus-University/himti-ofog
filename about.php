@@ -96,11 +96,11 @@ Tenggara dalam bidang teknologi dan informatika."</p>
             </h1>
             <div style="position: relative; display: flex; margin:auto; text-align: center; justify-content:center;">
                 <div style="margin: 20px 30px; display:flex; flex-direction: column; gap: 5px;">
-                    <a href="assets/img/about/Struktur-DPI-2025.png" style="padding-top:10px;" target="_blank">
-                        <img src="assets/img/about/Struktur-DPI-2025.png" Class="Bagan" alt="" style="display: flex; margin: auto;">
+                    <a href="assets/img/about/Struktur-DPI-2026.svg" style="padding-top:10px;" target="_blank">
+                        <img src="assets/img/about/Struktur-DPI-2026.svg" Class="Bagan" alt="" style="display: flex; margin: auto;">
                     </a>
-                    <a href="assets/img/about/Struktur-NON-DPI-2025.png" target="_blank">
-                        <img src="assets/img/about/Struktur-NON-DPI-2025.png"  Class="Bagan" alt="" style="display: flex; margin: auto;">
+                    <a href="assets/img/about/Struktur-Non-DPI-2026.svg" target="_blank">
+                        <img src="assets/img/about/Struktur-Non-DPI-2026.svg"  Class="Bagan" alt="" style="display: flex; margin: auto;">
                     </a>
                 </div>
             </div>

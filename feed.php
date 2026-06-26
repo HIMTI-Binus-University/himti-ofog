@@ -1,6 +1,6 @@
 <?php
 // Combines RSS feeds from multiple sources
-// header('Content-Type: application/json; charset=UTF-8');
+header('Content-Type: application/json; charset=UTF-8');
 // header('Access-Control-Allow-Origin: *');
 
 $sources = [
@@ -65,12 +65,19 @@ $sources = [
 ];
 
 $articles = [];
+libxml_use_internal_errors(true);
 
 foreach ($sources as $source) {
   // Fetch data
   if ($source['source_type'] == 'atom' || $source['source_type'] == 'rss') {
     $feed = simplexml_load_file($source['feed_url']);
+    if ($feed === false) {
+      libxml_clear_errors();
+      continue;
+    }
+
     $entries = ($source['source_type'] == 'atom') ? $feed->entry : $feed->channel->item;
+    if (!$entries) continue;
 
     foreach ($entries as $entry) {
       // Title
@@ -117,7 +124,9 @@ $json = json_encode($articles);
 
 // Write into a file
 $file = fopen('feed.json', 'w');
-fwrite($file, $json);
-fclose($file);
+if ($file) {
+  fwrite($file, $json);
+  fclose($file);
+}
 
 echo $json;
