@@ -856,8 +856,8 @@ button {
 .hi-techno {
   background-image: url("https://techno.himtibinus.or.id/assets/logo1.png");
 }
-.hi-techfest{
-  background-image: url("../img/events/TECHFEST2026-2.svg")
+.hi-techfest {
+  background-image: url("../img/events/TECHFEST2026-2.svg");
 }
 
 @media (min-width: 678px) {
