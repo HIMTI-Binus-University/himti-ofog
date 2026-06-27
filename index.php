@@ -348,7 +348,7 @@ include('components/journey-items.php');
 
         </div>
 
-        <div class="viewtestimoni mt-3"><a href="https://student-activity.binus.ac.id/himti"
+        <div class="viewtestimoni mt-3"><a href="https://www.youtube.com/@HimtiBinus"
                 class="btn btn-light btn-lg text-dark">View All Videos</a></div>
     </div>
 
