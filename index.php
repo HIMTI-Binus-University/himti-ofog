@@ -558,7 +558,7 @@ include('components/journey-items.php');
     VanillaTilt.init(document.querySelectorAll(".upcomingeventrow"));
     </script>
     <script src="assets/js/testimonies.js?v=2"></script>
-    <script src="assets/js/RSShandle.js?v=2"></script>
+    <script src="assets/js/RSShandle.js?v=<?= filemtime(__DIR__ . '/assets/js/RSShandle.js') ?>"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {

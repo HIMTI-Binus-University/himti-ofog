@@ -3,6 +3,18 @@
 header('Content-Type: application/json; charset=UTF-8');
 // header('Access-Control-Allow-Origin: *');
 
+$cache_file = __DIR__ . '/feed.json';
+$cache_ttl = 60 * 30;
+
+if (
+  is_readable($cache_file)
+  && filesize($cache_file) > 2
+  && time() - filemtime($cache_file) < $cache_ttl
+) {
+  readfile($cache_file);
+  exit;
+}
+
 $sources = [
   // HIMTI Greater Jakarta
   [
@@ -123,10 +135,15 @@ ksort($articles, SORT_NUMERIC);
 $json = json_encode($articles);
 
 // Write into a file
-$file = fopen('feed.json', 'w');
-if ($file) {
-  fwrite($file, $json);
-  fclose($file);
+if (count($articles) > 0) {
+  $file = fopen($cache_file, 'w');
+  if ($file) {
+    fwrite($file, $json);
+    fclose($file);
+  }
+} else if (is_readable($cache_file) && filesize($cache_file) > 2) {
+  readfile($cache_file);
+  exit;
 }
 
 echo $json;

@@ -46,21 +46,9 @@ function renderRSSArticles(data) {
     return true;
 }
 
-function fetchRSSFromGenerator() {
-    return $.ajax({
-        url: './feed.php',
-        dataType: 'json',
-        cache: false,
-        success: renderRSSArticles
-    });
-}
-
 $.ajax({
-    url: './feed.json',
+    url: './feed.php',
     dataType: 'json',
     cache: false,
-    success: function (data) {
-        if (!renderRSSArticles(data)) fetchRSSFromGenerator();
-    },
-    error: fetchRSSFromGenerator
+    success: renderRSSArticles
 });
